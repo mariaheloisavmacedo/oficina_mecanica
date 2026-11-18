@@ -20,6 +20,13 @@ Centralizar informações de clientes, veículos e serviços para facilitar o fl
 - **Registro de Serviços Executados:** lançamento de itens de mão de obra por OS com horas trabalhadas, responsável e valores.
 - **Consulta de Andamento:** acompanhamento simplificado do status do reparo para os clientes.
 
+## Versões do incremento
+
+- `sistema_oficina.py`: demonstração de terminal correspondente ao MVP `v1.0-mvp` da Maria, com abertura de OS, status `Aguardando Inspeção` → `Em Reparo` → `Pronto` e histórico de mensagens simuladas.
+- `index.html`: painel web complementar, com cadastro local e o fluxo de status definido nos requisitos revisados.
+
+Nos dois casos, as mensagens são apenas demonstrativas; não há integração real com WhatsApp.
+
 ## Arquitetura do Sistema
 
 O projeto adota uma arquitetura em camadas estruturada em 4 blocos principais:
@@ -40,5 +47,27 @@ Projeto acadêmico desenvolvido para a disciplina de **Projeto de Software** (Ce
 
 ## Documentação e Modelagem
 
-- [REQUISITOS.md](./REQUISITOS.md): Requisitos funcionais e não funcionais revisados (E1 corrigido).
-- [PROJETO_ARQUITETURA_E2.md](./docs/PROJETO_ARQUITETURA_E2.md): Detalhamento da arquitetura em 4 blocos, Diagramas UML (Casos de Uso e Classes), interfaces e matriz de riscos.
+- [Marco intermediário](./docs/marco_intermediario.md): síntese dos oito entregáveis, roteiro de demonstração e commits.
+- [Requisitos do incremento](./docs/requisitos.md): escopo, critérios de aceite e limites da versão demonstrável.
+- [Arquitetura](./docs/arquitetura.md): componentes implementados, restrições, execução e manutenção futura.
+- [Modelo OO e UML](./docs/uml.md): seis classes conceituais, atributos, operações, relacionamentos e correspondência com o código atual.
+- [Requisitos originais](./REQUISITOS.md): levantamento completo do escopo do projeto.
+- [Planejamento E2](./docs/PROJETO_ARQUITETURA_E2.md): documento de arquitetura e planejamento elaborado no marco anterior.
+
+## Executar o MVP em Python
+
+Com Python 3 instalado, na raiz do projeto execute:
+
+```sh
+python3 sistema_oficina.py
+```
+
+## Executar o painel web complementar
+
+Na raiz do projeto, inicie um servidor estático:
+
+```sh
+python3 -m http.server 8000
+```
+
+Abra `http://localhost:8000` no navegador. Não há dependências para instalar; os dados de demonstração são guardados no `localStorage` do navegador atual. Não use dados pessoais reais nesta versão.

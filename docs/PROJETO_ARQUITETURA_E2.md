@@ -1,5 +1,7 @@
 # Projeto de Software — E2: Arquitetura, Modelagem UML e Planejamento
 
+> Documento do marco E2. Para os requisitos e o modelo atualizados do incremento funcional, consulte [requisitos.md](requisitos.md), [arquitetura.md](arquitetura.md) e [uml.md](uml.md).
+
 **Projeto:** Oficina Mecânica  
 **Instituição:** Centro Universitário UFBRA  
 **Curso:** Análise e Desenvolvimento de Sistemas (ADS)  

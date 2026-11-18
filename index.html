@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202623">
+  <title>Oficina Mecânica | Operação</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Oficina Mecânica, início">
+      <span class="brand-mark" aria-hidden="true">OM</span>
+      <span>Oficina <strong>Mecânica</strong></span>
+    </a>
+    <div class="topbar-meta"><span class="live-dot"></span> Ambiente de demonstração</div>
+  </header>
+
+  <main id="inicio" class="page-shell">
+    <section class="page-heading" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">OPERAÇÃO / PAINEL</p>
+        <h1 id="page-title">Ordens de serviço</h1>
+        <p class="page-subtitle">Acompanhe a fila da oficina e registre cada atendimento.</p>
+      </div>
+      <form id="tracking-form" class="tracking-form">
+        <label for="tracking-query">Consulta rápida</label>
+        <div class="tracking-control">
+          <input id="tracking-query" name="query" placeholder="Número da OS ou placa" autocomplete="off">
+          <button type="submit" class="button button-dark">Buscar</button>
+        </div>
+        <p id="tracking-result" class="field-note" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="metrics" aria-label="Resumo da oficina">
+      <article class="metric metric-open"><span>Em aberto</span><strong id="metric-open">0</strong></article>
+      <article class="metric metric-progress"><span>Em execução</span><strong id="metric-progress">0</strong></article>
+      <article class="metric metric-done"><span>Concluídas</span><strong id="metric-done">0</strong></article>
+      <article class="metric metric-revenue"><span>Total em serviços</span><strong id="metric-revenue">R$ 0,00</strong></article>
+    </section>
+
+    <section class="forms-grid" aria-label="Abertura e cadastro">
+      <article class="panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">ATENDIMENTO</p><h2>Abrir ordem</h2></div>
+          <span class="step-number">01</span>
+        </div>
+        <form id="order-form" class="form-grid">
+          <label class="field field-wide">Veículo
+            <select id="vehicle-select" name="vehicleId" required>
+              <option value="">Cadastre ou selecione um veículo</option>
+            </select>
+          </label>
+          <label class="field field-wide">Queixa relatada
+            <textarea name="complaint" rows="3" maxlength="500" placeholder="Descreva o problema informado pelo cliente" required></textarea>
+          </label>
+          <button class="button button-accent field-wide" type="submit">Criar ordem de serviço</button>
+        </form>
+      </article>
+
+      <article class="panel panel-register">
+        <div class="panel-heading">
+          <div><p class="eyebrow">BASE DE CLIENTES</p><h2>Cadastrar veículo</h2></div>
+          <span class="step-number">02</span>
+        </div>
+        <form id="customer-form" class="form-grid">
+          <label class="field field-wide">Nome do cliente
+            <input name="name" autocomplete="name" maxlength="120" required>
+          </label>
+          <label class="field">CPF/CNPJ
+            <input name="document" inputmode="numeric" maxlength="18" placeholder="Somente números" required>
+          </label>
+          <label class="field">Telefone
+            <input name="phone" type="tel" autocomplete="tel" maxlength="20" required>
+          </label>
+          <label class="field">Placa
+            <input name="plate" maxlength="7" placeholder="ABC1D23" required>
+          </label>
+          <label class="field">Marca
+            <input name="brand" maxlength="50" required>
+          </label>
+          <label class="field">Modelo
+            <input name="model" maxlength="60" required>
+          </label>
+          <label class="field">Ano
+            <input name="year" type="number" min="1900" max="2099" required>
+          </label>
+          <label class="field">Cor
+            <input name="color" maxlength="30" required>
+          </label>
+          <button class="button button-dark field-wide" type="submit">Salvar cliente e veículo</button>
+        </form>
+      </article>
+    </section>
+
+    <section class="panel queue-panel" aria-labelledby="queue-title">
+      <div class="panel-heading queue-heading">
+        <div><p class="eyebrow">ACOMPANHAMENTO</p><h2 id="queue-title">Fila de serviço</h2></div>
+        <span id="queue-count" class="queue-count">0 ordens</span>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Ordem</th><th>Cliente / veículo</th><th>Entrada</th><th>Status</th><th>Total</th><th></th></tr></thead>
+          <tbody id="orders-list"></tbody>
+        </table>
+      </div>
+      <p id="empty-orders" class="empty-state">Nenhuma ordem cadastrada. Cadastre um veículo para iniciar o atendimento.</p>
+    </section>
+
+    <section id="order-detail" class="panel detail-panel" aria-labelledby="detail-title" hidden>
+      <div class="panel-heading queue-heading">
+        <div><p class="eyebrow">DETALHES DO ATENDIMENTO</p><h2 id="detail-title">Ordem de serviço</h2></div>
+        <button id="close-detail" class="icon-button" type="button" aria-label="Fechar detalhes" title="Fechar detalhes">×</button>
+      </div>
+      <div class="detail-summary">
+        <div><span class="detail-label">Cliente e veículo</span><strong id="detail-vehicle"></strong></div>
+        <div><span class="detail-label">Queixa</span><p id="detail-complaint"></p></div>
+        <div><span class="detail-label">Status atual</span><strong id="detail-status"></strong></div>
+      </div>
+      <section class="history-section" aria-labelledby="history-title">
+        <div class="history-heading">
+          <div><h3 id="history-title">Atualizações ao cliente</h3><p class="field-note">Mensagens registradas para demonstração. O WhatsApp não está conectado.</p></div>
+        </div>
+        <ol id="status-history" class="status-history"></ol>
+      </section>
+      <div class="detail-columns">
+        <div>
+          <h3>Serviços lançados</h3>
+          <ul id="service-list" class="service-list"></ul>
+          <p id="service-empty" class="field-note">Ainda não há mão de obra lançada nesta ordem.</p>
+        </div>
+        <div class="detail-actions">
+          <form id="service-form" class="form-grid">
+            <h3 class="field-wide">Lançar mão de obra</h3>
+            <label class="field field-wide">Descrição
+              <input name="description" maxlength="160" required>
+            </label>
+            <label class="field">Mecânico responsável
+              <input name="mechanic" maxlength="100" required>
+            </label>
+            <label class="field">Valor (R$)
+              <input name="price" type="number" min="0.01" step="0.01" required>
+            </label>
+            <button class="button button-accent field-wide" type="submit">Adicionar serviço</button>
+          </form>
+          <div class="status-actions">
+            <label class="field">Atualizar status
+              <select id="status-select"></select>
+            </label>
+            <button id="status-button" class="button button-dark" type="button">Atualizar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+  <footer class="site-footer">Protótipo acadêmico · Os dados ficam armazenados neste navegador.</footer>
+</body>
+</html>
