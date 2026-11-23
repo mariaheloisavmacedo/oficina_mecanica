@@ -27,32 +27,34 @@ Centralizar informações de clientes, veículos e serviços para facilitar o fl
 
 Nos dois casos, as mensagens são apenas demonstrativas; não há integração real com WhatsApp.
 
-## Arquitetura do Sistema
+## Arquitetura do MVP atual
 
-O projeto adota uma arquitetura em camadas estruturada em 4 blocos principais:
-1. **Frontend (Camada de Apresentação):** interfaces web responsivas para atendimento, oficina e clientes.
-2. **Backend / API (Camada de Controle):** serviços REST responsáveis por autenticação, regras de acesso e rotas.
-3. **Regras de Negócio (Camada de Domínio):** validação de dados, fluxo de status da OS e cálculos operacionais.
-4. **Banco de Dados (Camada de Persistência):** armazenamento relacional garantindo integridade referencial.
+1. **Apresentação:** HTML e CSS, em `index.html` e `styles.css`, com interface responsiva.
+2. **Controle e regras locais:** JavaScript em `app.js`, incluindo validações e máquina de estados da OS.
+3. **Persistência demonstrativa:** `localStorage` do navegador.
+4. **Demonstração Python:** `sistema_oficina.py`, com dados mantidos em memória durante a execução.
 
-## Equipe e Papéis
-
-Projeto acadêmico desenvolvido para a disciplina de **Projeto de Software** (Centro Universitário UFBRA):
-
-- **Franciscana Ribeiro Cintra:** Engenharia de Software, Desenvolvimento Backend e Documentação.
-- **Maria Heloísa Macedo:** Modelagem UML, Desenvolvimento Frontend e Garantia de Qualidade.
-
-**Professor:** Jefferson Brandão  
-**Curso:** Análise e Desenvolvimento de Sistemas (ADS)
+API, autenticação por perfil, banco relacional, backup e proteção da consulta do cliente são requisitos futuros. Eles não estão implementados neste MVP.
 
 ## Documentação e Modelagem
 
-- [Marco intermediário](./docs/marco_intermediario.md): síntese dos oito entregáveis, roteiro de demonstração e commits.
-- [Requisitos do incremento](./docs/requisitos.md): escopo, critérios de aceite e limites da versão demonstrável.
-- [Arquitetura](./docs/arquitetura.md): componentes implementados, restrições, execução e manutenção futura.
-- [Modelo OO e UML](./docs/uml.md): seis classes conceituais, atributos, operações, relacionamentos e correspondência com o código atual.
+- [Marco intermediário](./docs/requisitos/marco_intermediario.md): síntese dos oito entregáveis, roteiro de demonstração e commits.
+- [Requisitos do incremento](./docs/requisitos/requisitos.md): escopo, critérios de aceite e limites da versão demonstrável.
+- [Arquitetura](./docs/modelagem/arquitetura.md): componentes implementados, restrições, execução e manutenção futura.
+- [Modelo OO e UML](./docs/modelagem/uml.md): seis classes conceituais, atributos, operações, relacionamentos e correspondência com o código atual.
+- [Diagrama de contexto](./docs/analise-dados/diagrama_contexto.md): fronteira do sistema e entidades externas.
+- [DFD nível 0](./docs/analise-dados/dfd_nivel0.md): processos principais, armazenamentos e fluxos de dados.
+- [Dicionário de dados](./docs/analise-dados/dicionario_dados.md): itens relevantes, formatos, origem e validações.
+- [Relatório de ajustes](./docs/analise-dados/relatorio_ajustes.md): comparação DFD/DD, divergências e correções.
+- [Planejamento incremental](./docs/processos/plano_incremental.md): modelo de processo, releases e organização de branches.
+- [CHANGELOG](./CHANGELOG.md): histórico de versões, melhorias e correções.
 - [Requisitos originais](./REQUISITOS.md): levantamento completo do escopo do projeto.
-- [Planejamento E2](./docs/PROJETO_ARQUITETURA_E2.md): documento de arquitetura e planejamento elaborado no marco anterior.
+- [Planejamento E2](./docs/modelagem/PROJETO_ARQUITETURA_E2.md): documento de arquitetura e planejamento elaborado no marco anterior.
+- [Plano de testes](./docs/testes/plano_testes.md): casos unitários, integração, sistema e aceitação.
+- [Bugs e correções](./docs/testes/bugs_correcoes.md): problemas encontrados e tratamentos.
+- [Evidências de testes](./docs/testes/evidencias_testes.md): comandos, resultados e capturas esperadas.
+- [Análise de segurança](./docs/seguranca/analise_seguranca.md): dados, autenticação, autorização e riscos residuais.
+- [Apresentação e defesa](./docs/apresentacao/apresentacao_defesa.md): roteiro para demonstração final.
 
 ## Executar o MVP em Python
 
@@ -71,3 +73,13 @@ python3 -m http.server 8000
 ```
 
 Abra `http://localhost:8000` no navegador. Não há dependências para instalar; os dados de demonstração são guardados no `localStorage` do navegador atual. Não use dados pessoais reais nesta versão.
+
+## Executar testes do incremento Python
+
+Na raiz do projeto:
+
+```sh
+python3 -m unittest discover -s tests -v
+```
+
+Os testes verificam a abertura da OS, o histórico inicial, a sequência de atualizações e o formato da data/hora.

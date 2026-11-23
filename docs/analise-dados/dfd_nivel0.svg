@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="950" viewBox="0 0 1400 950">
+  <rect width="1400" height="950" fill="#ffffff"/>
+  <text x="700" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="bold">DFD — Fluxo de Dados de Nível 0 — Oficina Mecânica</text>
+
+  <g font-family="Arial,sans-serif" font-size="17">
+    <g id="atores">
+      <rect x="35" y="120" width="210" height="70" rx="8" fill="#edf5ff" stroke="#356aa0" stroke-width="2"/><text x="140" y="150" text-anchor="middle" font-weight="bold">Atendente / Recepcionista</text><text x="140" y="175" text-anchor="middle">Cadastro e abertura da OS</text>
+      <rect x="35" y="330" width="210" height="70" rx="8" fill="#edf5ff" stroke="#356aa0" stroke-width="2"/><text x="140" y="360" text-anchor="middle" font-weight="bold">Mecânico</text><text x="140" y="385" text-anchor="middle">Itens e status da OS</text>
+      <rect x="35" y="540" width="210" height="70" rx="8" fill="#edf5ff" stroke="#356aa0" stroke-width="2"/><text x="140" y="570" text-anchor="middle" font-weight="bold">Cliente</text><text x="140" y="595" text-anchor="middle">Consulta por OS ou placa</text>
+      <rect x="1155" y="540" width="210" height="70" rx="8" fill="#edf5ff" stroke="#356aa0" stroke-width="2"/><text x="1260" y="570" text-anchor="middle" font-weight="bold">Gestor / Dono</text><text x="1260" y="595" text-anchor="middle">Solicita indicadores</text>
+    </g>
+
+    <g id="processos">
+      <rect x="390" y="105" width="210" height="85" rx="105" fill="#fff4d6" stroke="#b26a00" stroke-width="2"/><text x="495" y="139" text-anchor="middle" font-size="16" font-weight="bold">1.0 Gerenciar clientes</text><text x="495" y="162" text-anchor="middle" font-size="16">e veículos</text>
+      <rect x="390" y="245" width="210" height="85" rx="105" fill="#fff4d6" stroke="#b26a00" stroke-width="2"/><text x="495" y="279" text-anchor="middle" font-size="16" font-weight="bold">2.0 Gerenciar ordens</text><text x="495" y="302" text-anchor="middle" font-size="16">de serviço</text>
+      <rect x="390" y="385" width="210" height="85" rx="105" fill="#fff4d6" stroke="#b26a00" stroke-width="2"/><text x="495" y="419" text-anchor="middle" font-size="16" font-weight="bold">3.0 Registrar itens</text><text x="495" y="442" text-anchor="middle" font-size="16">de serviço</text>
+      <rect x="390" y="525" width="210" height="85" rx="105" fill="#fff4d6" stroke="#b26a00" stroke-width="2"/><text x="495" y="559" text-anchor="middle" font-size="16" font-weight="bold">4.0 Atualizar ciclo</text><text x="495" y="582" text-anchor="middle" font-size="16">de vida da OS</text>
+      <rect x="390" y="665" width="210" height="85" rx="105" fill="#fff4d6" stroke="#b26a00" stroke-width="2"/><text x="495" y="699" text-anchor="middle" font-size="16" font-weight="bold">5.0 Consultar</text><text x="495" y="722" text-anchor="middle" font-size="16">andamento da OS</text>
+      <rect x="390" y="805" width="210" height="85" rx="105" fill="#fff4d6" stroke="#b26a00" stroke-width="2"/><text x="495" y="839" text-anchor="middle" font-size="16" font-weight="bold">6.0 Gerar painel</text><text x="495" y="862" text-anchor="middle" font-size="16">e indicadores</text>
+    </g>
+
+    <g id="arquivos">
+      <rect x="800" y="105" width="210" height="70" fill="#edfbed" stroke="#2c8a50" stroke-width="2"/><line x1="800" y1="122" x2="1010" y2="122" stroke="#2c8a50"/><text x="905" y="155" text-anchor="middle" font-weight="bold">D1 — Clientes</text>
+      <rect x="800" y="225" width="210" height="70" fill="#edfbed" stroke="#2c8a50" stroke-width="2"/><line x1="800" y1="242" x2="1010" y2="242" stroke="#2c8a50"/><text x="905" y="275" text-anchor="middle" font-weight="bold">D2 — Veículos</text>
+      <rect x="800" y="345" width="210" height="70" fill="#edfbed" stroke="#2c8a50" stroke-width="2"/><line x1="800" y1="362" x2="1010" y2="362" stroke="#2c8a50"/><text x="905" y="395" text-anchor="middle" font-weight="bold">D3 — Ordens de Serviço</text>
+      <rect x="800" y="465" width="210" height="70" fill="#edfbed" stroke="#2c8a50" stroke-width="2"/><line x1="800" y1="482" x2="1010" y2="482" stroke="#2c8a50"/><text x="905" y="515" text-anchor="middle" font-weight="bold">D4 — Itens de Serviço</text>
+      <rect x="800" y="585" width="210" height="70" fill="#edfbed" stroke="#2c8a50" stroke-width="2"/><line x1="800" y1="602" x2="1010" y2="602" stroke="#2c8a50"/><text x="905" y="635" text-anchor="middle" font-weight="bold">D5 — Histórico de Status</text>
+    </g>
+
+    <g fill="none" stroke="#333" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M245 155 L390 155"/><path d="M245 155 L390 287"/><path d="M245 365 L390 425"/><path d="M245 365 L390 565"/><path d="M245 575 L390 705"/><path d="M1155 575 L600 845"/>
+      <path d="M600 145 L800 140"/><path d="M600 287 L800 260"/><path d="M600 425 L800 380"/><path d="M600 565 L800 620"/><path d="M600 705 L800 500"/><path d="M600 845 C820 845 980 610 1155 610"/>
+    </g>
+
+    <g font-family="Arial,sans-serif" font-size="13" fill="#444">
+      <text x="258" y="138">Dados cadastrais</text>
+      <text x="258" y="278">Veículo e queixa</text>
+      <text x="258" y="412">Serviços e valores</text>
+      <text x="258" y="552">Novo status</text>
+      <text x="258" y="692">Número da OS ou placa</text>
+      <text x="1040" y="685">Pedidos de indicador</text>
+      <text x="660" y="132">Cadastros confirmados</text>
+      <text x="660" y="250">Veículo e cliente</text>
+      <text x="660" y="370">Itens e total</text>
+      <text x="660" y="552">Transição e histórico</text>
+      <text x="660" y="690">Status e atualizações</text>
+    </g>
+  </g>
+
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#333"/></marker></defs>
+</svg>

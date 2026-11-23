@@ -4,7 +4,7 @@
 **Equipe:** Franciscana Ribeiro Cintra e Maria Heloísa Macedo
 **Instituição:** Centro Universitário UFBRA
 
-Este documento consolida o escopo do incremento implementado. O levantamento original e o escopo completo permanecem em [REQUISITOS.md](../REQUISITOS.md).
+Este documento consolida o escopo do incremento implementado. O levantamento original e o escopo completo permanecem em [REQUISITOS.md](../../REQUISITOS.md).
 
 ## Objetivo
 

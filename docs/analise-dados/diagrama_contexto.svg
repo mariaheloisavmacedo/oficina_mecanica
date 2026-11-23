@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#ffffff"/>
+  <text x="700" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Diagrama de Contexto — Oficina Mecânica</text>
+
+  <g font-family="Arial, sans-serif">
+    <!-- Entidades externas -->
+    <rect x="50" y="120" width="230" height="90" rx="8" fill="#edf5ff" stroke="#356aa0" stroke-width="2"/>
+    <text x="165" y="155" text-anchor="middle" font-size="19" font-weight="bold">Cliente</text>
+    <text x="165" y="183" text-anchor="middle" font-size="15">Consulta por OS ou placa</text>
+
+    <rect x="50" y="300" width="230" height="90" rx="8" fill="#edf5ff" stroke="#356aa0" stroke-width="2"/>
+    <text x="165" y="335" text-anchor="middle" font-size="18" font-weight="bold">Atendente / Recepcionista</text>
+    <text x="165" y="363" text-anchor="middle" font-size="15">Cadastro e abertura da OS</text>
+
+    <rect x="50" y="480" width="230" height="90" rx="8" fill="#edf5ff" stroke="#356aa0" stroke-width="2"/>
+    <text x="165" y="515" text-anchor="middle" font-size="19" font-weight="bold">Mecânico</text>
+    <text x="165" y="543" text-anchor="middle" font-size="15">Itens e atualização do status</text>
+
+    <rect x="1120" y="300" width="230" height="90" rx="8" fill="#edf5ff" stroke="#356aa0" stroke-width="2"/>
+    <text x="1235" y="335" text-anchor="middle" font-size="18" font-weight="bold">Gestor / Dono</text>
+    <text x="1235" y="363" text-anchor="middle" font-size="15">Solicita indicadores</text>
+
+    <!-- Sistema central -->
+    <ellipse cx="700" cy="440" rx="215" ry="155" fill="#fff4d6" stroke="#b26a00" stroke-width="3"/>
+    <text x="700" y="420" text-anchor="middle" font-size="25" font-weight="bold">Sistema</text>
+    <text x="700" y="456" text-anchor="middle" font-size="25" font-weight="bold">Oficina Mecânica</text>
+
+    <!-- Armazenamento local -->
+    <rect x="570" y="725" width="260" height="90" rx="8" fill="#edfbed" stroke="#2c8a50" stroke-width="2"/>
+    <line x1="570" y1="742" x2="830" y2="742" stroke="#2c8a50" stroke-width="2"/>
+    <text x="700" y="775" text-anchor="middle" font-size="18" font-weight="bold">Armazenamento local</text>
+    <text x="700" y="803" text-anchor="middle" font-size="16">localStorage</text>
+
+    <!-- Fluxos -->
+    <g fill="none" stroke="#333" stroke-width="2.2" marker-end="url(#arrow)">
+      <path d="M280 165 C390 165 430 320 485 360"/>
+      <path d="M485 415 C390 415 350 165 280 165"/>
+
+      <path d="M280 345 C390 345 430 390 485 420"/>
+      <path d="M485 460 C390 460 350 345 280 345"/>
+
+      <path d="M280 525 C390 525 430 480 485 470"/>
+      <path d="M485 510 C390 510 350 525 280 525"/>
+
+      <path d="M1120 345 C1020 345 1000 420 915 420"/>
+      <path d="M915 460 C1000 460 1020 345 1120 345"/>
+
+      <path d="M700 595 L700 725"/>
+      <path d="M700 725 L700 595"/>
+    </g>
+
+    <!-- Rótulos dos fluxos -->
+    <g font-family="Arial, sans-serif" font-size="14" fill="#444">
+      <text x="300" y="260">Número da OS / placa</text>
+      <text x="300" y="286">Status e histórico</text>
+
+      <text x="300" y="405">Dados de cliente e veículo</text>
+      <text x="300" y="432">Queixa e abertura da OS</text>
+      <text x="300" y="455">Confirmação e fila</text>
+
+      <text x="300" y="560">Itens e novo status</text>
+      <text x="300" y="585">Consulta e OS atualizada</text>
+
+      <text x="950" y="405">Solicitação de indicadores</text>
+      <text x="950" y="480">Resumo operacional</text>
+
+      <text x="716" y="650">Dados persistidos</text>
+      <text x="716" y="690">Dados recuperados</text>
+    </g>
+  </g>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>
